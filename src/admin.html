@@ -60,20 +60,7 @@
                         <th scope="col">Opciones</th>
                     </tr>
                 </thead>
-                <tbody id="tablaProducto">
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Superman</td>
-                        <td>456ADS</td>
-                        <td>Superheroe</td>
-                        <td>Personaje de DC</td>
-                        <td>superman.png</td>
-                        <td>
-                            <button class="btn btn-outline-info">Modificar</button>
-                            <button class="btn btn-outline-danger">Eliminar</button>
-                        </td>
-                    </tr>
-                </tbody>
+                <tbody id="tablaProducto"></tbody>
             </table>
         </article>
     </main>
@@ -90,31 +77,31 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form onsubmit="agregarProducto(event)">
                         <div class="form-group">
                             <label>Codigo</label>
-                            <input placeholder="Ej: 1" type="number" id="codigo" class="form-control">
+                            <input placeholder="Ej: 1" type="text" id="codigo" class="form-control" onblur="revisarCodigo(this)">
                         </div>
                         <div class="form-group">
                             <label>Nombre</label>
-                            <input placeholder="Ej: Ironman" type="text" id="nombre" class="form-control">
+                            <input placeholder="Ej: Ironman" type="text" id="nombre" class="form-control" onblur="requerido(this)">
                         </div>
                         <div class="form-group">
                             <label>Numero de serie</label>
-                            <input placeholder="Ej: 789FGD" type="text" id="numSerie" class="form-control">
+                            <input placeholder="Ej: 789FGD" type="text" id="numSerie" class="form-control" onblur="requerido(this)">
                         </div>
                         <div class="form-group">
                             <label>Categoria</label>
-                            <input placeholder="Ej: Superheroe" type="text" id="categoria" class="form-control">
+                            <input placeholder="Ej: Superheroe" type="text" id="categoria" class="form-control" onblur="requerido(this)">
                         </div>
                         <div class="form-group">
                             <label>Descripcion</label>
                             <input placeholder="Ej: superheroe de Marvel" type="text" id="descripcion"
-                                class="form-control">
+                                class="form-control" onblur="requerido(this)">
                         </div>
                         <div class="form-group">
                             <label>Imagen</label>
-                            <input placeholder="Ej: Ironman.png" type="text" id="imagen" class="form-control">
+                            <input placeholder="Ej: Ironman.png" type="text" id="imagen" class="form-control" onblur="requerido(this)">
                         </div>
                         <button class="btn btn-primary" type="submit">Enviar</button>
                     </form>
