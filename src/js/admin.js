@@ -72,7 +72,6 @@ function leerDatos() {
     //Dibujar las filas de la tabla
     borrarFila();
     dibujarFilas(arregloLS);
-    
   }
 }
 
@@ -90,7 +89,8 @@ function dibujarFilas(arregloLS) {
                         <td>${arregloLS[i].imagen}.png</td>
                         <td>
                             <button class="btn btn-outline-info">Modificar</button>
-                            <button class="btn btn-outline-danger">Eliminar</button>
+                            <button class="btn btn-outline-danger" onclick="eliminarProducto(${arregloLS[i].codigo})">
+                            Eliminar</button>
                         </td>
                     </tr>`;
     tbody.innerHTML += codigoHTML;
@@ -108,4 +108,24 @@ function borrarFila(){
 function limpiarForm(){
   let formProducto = document.getElementById("formProducto");
   formProducto.reset();
+}
+
+window.eliminarProducto = function(codigo){
+  // buscar el objeto a eliminar en el arreglo(por su codigo, recibido por parametro)
+  // eliminar este objeto del arreglo
+  // Opcion 1
+  // for(let i in listaProductos){
+  //   if(listaProductos[i].codigo == codigo){
+  //     // encontre el producto buscado 
+  //   }
+  // }
+  // Opcion 2 
+  let productosFiltrados = listaProductos.filter(function(producto){
+    return producto.codigo != codigo;
+  });
+  // actualizar localstorage
+  localStorage.setItem("funkoKey", JSON.stringify(productosFiltrados));
+  // dibujar tabla otra vez
+  leerDatos();
+  listaProductos = productosFiltrados;
 }
