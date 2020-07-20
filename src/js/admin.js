@@ -2,12 +2,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap";
 import "../css/style.css";
 import Funko from "./funko";
+import $ from "jquery";
 
 let listaProductos = [];
 leerDatos();
+let productoExistente = false;
+// si es false, boton enviar agrega nuevo producto. Si es true, modifica.
 
-window.agregarProducto = function (e) {
-  e.preventDefault();
+window.agregarProducto = function () {
   console.log("en la funcion");
   let codigo = document.getElementById("codigo"),
     nombre = document.getElementById("nombre"),
@@ -86,9 +88,9 @@ function dibujarFilas(arregloLS) {
                         <td>${arregloLS[i].numSerie}</td>
                         <td>${arregloLS[i].categoria}</td>
                         <td>${arregloLS[i].descripcion}</td>
-                        <td>${arregloLS[i].imagen}.png</td>
+                        <td>${arregloLS[i].imagen}</td>
                         <td>
-                            <button class="btn btn-outline-info">Modificar</button>
+                            <button class="btn btn-outline-info" onclick="modificarProducto(${arregloLS[i].codigo})">Modificar</button>
                             <button class="btn btn-outline-danger" onclick="eliminarProducto(${arregloLS[i].codigo})">
                             Eliminar</button>
                         </td>
@@ -108,6 +110,7 @@ function borrarFila(){
 function limpiarForm(){
   let formProducto = document.getElementById("formProducto");
   formProducto.reset();
+  productoExistente = false;
 }
 
 window.eliminarProducto = function(codigo){
@@ -121,6 +124,7 @@ window.eliminarProducto = function(codigo){
   // }
   // Opcion 2 
   let productosFiltrados = listaProductos.filter(function(producto){
+    // filter devuelve un arreglo con una sola posicion por eso es importante que los codigos sean unicos
     return producto.codigo != codigo;
   });
   // actualizar localstorage
@@ -129,3 +133,43 @@ window.eliminarProducto = function(codigo){
   leerDatos();
   listaProductos = productosFiltrados;
 }
+
+window.modificarProducto = function (codigo){
+  console.log(codigo)
+  // buscar el objeto a modificar en el arreglo(por su codigo, recibido por parametro)
+  let objetoEncontrado = listaProductos.find(function(producto){
+    return producto.codigo == codigo;
+  })
+  console.log(objetoEncontrado);
+  // asignar al modal los valores del pbjeto encontrado
+  document.getElementById("codigo").value = objetoEncontrado.codigo;
+  document.getElementById("nombre").value = objetoEncontrado.nombre;
+  document.getElementById("numSerie").value = objetoEncontrado.numSerie;
+  document.getElementById("categoria").value = objetoEncontrado.categoria;
+  document.getElementById("descripcion").value = objetoEncontrado.descripcion;
+  document.getElementById("imagen").value = objetoEncontrado.imagen;
+  // mostrar la ventana modal
+  let ventanaModal = document.getElementById("modalProducto");
+  // simbolo pesos fuera de bartick es siempre sintaxis de jquery
+  $(ventanaModal).modal("show");
+  productoExistente = true;
+};
+
+window.agregarOmodificar = function(e){
+  e.preventDefault();
+
+  if(productoExistente == false){
+    agregarProducto();
+  }else{
+    guardarModificacion();
+  }
+}
+
+function guardarModificacion(){
+  console.log("desde la funcion guardarModificacion");
+  limpiarForm();
+  // tomar todos los valores del form y almacenarlos en variables
+  // buscar en arreglo listaProductos cual es el que estoy modificando y actualizarle los valores
+  // actualizar el locals=Storage
+  // vovler a dibujar la tabla
+};
