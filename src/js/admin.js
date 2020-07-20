@@ -34,6 +34,8 @@ window.agregarProducto = function (e) {
     );
     listaProductos.push(producto);
     localStorage.setItem("funkoKey", JSON.stringify(listaProductos));
+    leerDatos();
+    limpiarForm();
   } else {
     alert("Faltan completar datos");
   }
@@ -68,7 +70,9 @@ function leerDatos() {
     }
     //Borrar filas
     //Dibujar las filas de la tabla
+    borrarFila();
     dibujarFilas(arregloLS);
+    
   }
 }
 
@@ -76,7 +80,7 @@ function dibujarFilas(arregloLS) {
   let tbody = document.getElementById("tablaProducto");
   let codigoHTML = "";
 
-  for (let i in arregloLS){
+  for (let i in arregloLS) {
     codigoHTML = `<tr>
                         <th scope="row">${arregloLS[i].codigo}</th>
                         <td>${arregloLS[i].nombre}</td>
@@ -91,4 +95,17 @@ function dibujarFilas(arregloLS) {
                     </tr>`;
     tbody.innerHTML += codigoHTML;
   }
+}
+function borrarFila(){
+  let tbody = document.getElementById("tablaProducto");
+  if(tbody.children.length > 0){
+   while(tbody.firstChild){
+     tbody.removeChild(tbody.firstChild)
+   }
+  }
+}
+
+function limpiarForm(){
+  let formProducto = document.getElementById("formProducto");
+  formProducto.reset();
 }
