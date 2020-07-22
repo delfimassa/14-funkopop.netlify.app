@@ -40,7 +40,9 @@ window.agregarProducto = function () {
     limpiarForm();
   } else {
     alert("Faltan completar datos");
-  }
+  };
+  let ventanaModal = document.getElementById("modalProducto");
+  $(ventanaModal).modal("hide");
 };
 
 window.revisarCodigo = function (checkCodigo) {
@@ -107,7 +109,7 @@ function borrarFila(){
   }
 }
 
-function limpiarForm(){
+window.limpiarForm = function(){
   let formProducto = document.getElementById("formProducto");
   formProducto.reset();
   productoExistente = false;
@@ -189,4 +191,6 @@ function guardarModificacion(){
   // vovler a dibujar la tabla
   leerDatos(); 
   limpiarForm();
+  let ventanaModal = document.getElementById("modalProducto");
+  $(ventanaModal).modal("hide");
 }; 
