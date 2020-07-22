@@ -167,9 +167,26 @@ window.agregarOmodificar = function(e){
 
 function guardarModificacion(){
   console.log("desde la funcion guardarModificacion");
-  limpiarForm();
   // tomar todos los valores del form y almacenarlos en variables
+  let codigo = document.getElementById("codigo").value,
+    nombre = document.getElementById("nombre").value,
+    numSerie = document.getElementById("numSerie").value,
+    descripcion = document.getElementById("descripcion").value,
+    categoria = document.getElementById("categoria").value,
+    imagen = document.getElementById("imagen").value;
   // buscar en arreglo listaProductos cual es el que estoy modificando y actualizarle los valores
-  // actualizar el locals=Storage
+  for (let i in listaProductos){
+    if (listaProductos[i].codigo == codigo){
+      listaProductos[i].nombre = nombre;
+      listaProductos[i].numSerie = numSerie;
+      listaProductos[i].descripcion = descripcion;
+      listaProductos[i].categoria = categoria;
+      listaProductos[i].imagen = imagen;
+    }
+  }
+  // actualizar el localStorage
+  localStorage.setItem("funkoKey", JSON.stringify(listaProductos));
   // vovler a dibujar la tabla
-};
+  leerDatos(); 
+  limpiarForm();
+}; 
