@@ -3,6 +3,8 @@ import "bootstrap";
 import "../css/style.css";
 import Funko from "./funko";
 import $ from "jquery";
+import Swal from 'sweetalert2'
+
 
 let listaProductos = [];
 leerDatos();
@@ -43,6 +45,12 @@ window.agregarProducto = function () {
   };
   let ventanaModal = document.getElementById("modalProducto");
   $(ventanaModal).modal("hide");
+
+  Swal.fire(
+    'Producto agregado!',
+    'Tu producto fue cargado exitosamente',
+    'success'
+  )
 };
 
 window.revisarCodigo = function (checkCodigo) {
@@ -124,6 +132,41 @@ window.eliminarProducto = function(codigo){
   //     // encontre el producto buscado 
   //   }
   // }
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-success',
+      cancelButton: 'btn btn-danger'
+    },
+    buttonsStyling: false
+  })
+  
+  swalWithBootstrapButtons.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, delete it!',
+    cancelButtonText: 'No, cancel!',
+    reverseButtons: true
+    // .then(function(result)){  };  ide m a la funcion flecha de abajo
+  }).then((result) => {
+    if (result.value) {
+      swalWithBootstrapButtons.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      )
+    } else if (
+      /* Read more about handling dismissals below */
+      result.dismiss === Swal.DismissReason.cancel
+    ) {
+      swalWithBootstrapButtons.fire(
+        'Cancelled',
+        'Your imaginary file is safe :)',
+        'error'
+      )
+    }
+  })                     
   // Opcion 2 
   let productosFiltrados = listaProductos.filter(function(producto){
     // filter devuelve un arreglo con una sola posicion por eso es importante que los codigos sean unicos

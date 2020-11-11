@@ -1,0 +1,124 @@
+<section class="container my-4" id="categoria">
+        <h4 class="text-light pt-4 lead">ACCIÓN, SUPERVIVENCIA, GUERRA</h4>
+        <article class="row">
+            <div class="col-md-2 mx-auto">
+                <div class="card" style="width:195px;">
+                    <img src="img/troy-sm.PNG" class="card-img-top" alt="..." style="height:247px; width:195px;">
+                    <div class="card-body">
+                        <a class="text-light" href="#">
+                            <h5 class="card-title">Card title</h5>
+                        </a>
+                        <a class="text-light" href="#">precio</p></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 mx-auto">
+                <div class="card" style="width:195px;">
+                    <img src="img/deathstranding-sm.PNG" class="card-img-top" alt="..."
+                        style="height:247px; width:195px;">
+                    <div class="card-body">
+                        <a class="text-light" href="#">
+                            <h5 class="card-title">Card title</h5>
+                        </a>
+                        <a class="text-light" href="#">precio</p></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 mx-auto">
+                <div class="card" style="width:195px;">
+                    <img src="img/mind-control-sm.PNG" class="card-img-top" alt="..."
+                        style="height:247px; width:195px;">
+                    <div class="card-body">
+                        <a class="text-light" href="#">
+                            <h5 class="card-title">Card title</h5>
+                        </a>
+                        <a class="text-light" href="#">precio</p></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 mx-auto">
+                <div class="card" style="width:195px;">
+                    <img src="img/rouge-sm.PNG" class="card-img-top" alt="..." style="height:247px; width:195px;">
+                    <div class="card-body">
+                        <a class="text-light" href="#">
+                            <h5 class="card-title">Card title</h5>
+                        </a>
+                        <a class="text-light" href="#">precio</p></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 mx-auto">
+                <div class="card" style="width:195px;">
+                    <img src="img/chorus-sm.PNG" class="card-img-top" alt="..." style="height:247px; width:195px;">
+                    <div class="card-body">
+                        <a class="text-light" href="#">
+                            <h5 class="card-title">Card title</h5>
+                        </a>
+                        <a class="text-light" href="#">precio</p></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <a href="error404.html"><button class="btn btn-primary btn-md mx-4 mb-4 lead">VER MAS</button></a>
+    </section>
+    <section class="container my-4" id="categoria">
+        <h4 class="text-light pt-4 lead">SIMULACIÓN</h4>
+        <article class="row">
+            <div class="col-md-2 mx-3">
+                <div class="card" style="width:195px;">
+                    <img src="img/trackmania-sm.PNG" class="card-img-top" alt="..." style="height:247px; width:195px;">
+                    <div class="card-body">
+                        <a class="text-light" href="#">
+                            <h5 class="card-title">Card title</h5>
+                        </a>
+                        <a class="text-light" href="#">precio</p></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 mx-3">
+                <div class="card" style="width:195px;">
+                    <img src="img/surgeon-sm.PNG" class="card-img-top" alt="..." style="height:247px; width:195px;">
+                    <div class="card-body">
+                        <a class="text-light" href="#">
+                            <h5 class="card-title">Card title</h5>
+                        </a>
+                        <a class="text-light" href="#">precio</p></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 mx-3">
+                <div class="card" style="width:195px;">
+                    <img src="img/snow-sm.PNG" class="card-img-top" alt="..." style="height:247px; width:195px;">
+                    <div class="card-body">
+                        <a class="text-light" href="#">
+                            <h5 class="card-title">Card title</h5>
+                        </a>
+                        <a class="text-light" href="#">precio</p></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 mx-3">
+                <div class="card" style="width:195px;">
+                    <img src="img/ooblets-sm.PNG" class="card-img-top" alt="..." style="height:247px; width:195px;">
+                    <div class="card-body">
+                        <a class="text-light" href="#">
+                            <h5 class="card-title">Card title</h5>
+                        </a>
+                        <a class="text-light" href="#">precio</p></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 mx-3">
+                <div class="card" style="width:195px;">
+                    <img src="img/blue-sm.PNG" class="card-img-top" alt="..." style="height:247px; width:195px;">
+                    <div class="card-body">
+                        <a class="text-light" href="#">
+                            <h5 class="card-title">Card title</h5>
+                        </a>
+                        <a class="text-light" href="#">precio</p></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <a href="error404.html"><button class="btn btn-primary btn-md mx-4 mb-4 lead">VER MAS</button></a>
+    </section>
